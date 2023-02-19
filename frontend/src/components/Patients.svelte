@@ -1,9 +1,10 @@
 <script>
+	import AddPatient from '/src/components/AddPatient.svelte';
+    import { addPatientModal } from '../stores';
+
 	export let patients;
 
 	let searchQuery = '';
-
-    let showAddPatientModal = false;
 
 	const getAge = (dateString) => {
 		const today = new Date();
@@ -11,7 +12,10 @@
 		const months1 = today.getFullYear() * 12 + today.getMonth();
 		const months2 = birthDate.getFullYear() * 12 + birthDate.getMonth();
 		const diff = months1 - months2;
-		return { years: (diff - (diff % 12)) / 12, months: diff % 12 };
+		return {
+			years: (diff - (diff % 12)) / 12,
+			months: diff % 12
+		};
 	};
 </script>
 
@@ -24,7 +28,7 @@
 			placeholder="Search"
 			bind:value={searchQuery}
 		/>
-		<button class="btn bg-primary-500 rounded-md" on:click={() => {showAddPatientModal = true}}>
+		<button class="btn bg-primary-500 rounded-md" on:click={() => (addPatientModal.set(true))}>
 			<span><i class="fa-solid fa-plus" /></span>
 		</button>
 	</div>
@@ -62,6 +66,12 @@
 					</dl>
 				</div>
 			</div>
+			{#if $addPatientModal}
+				<div class="fixed inset-0 z-50 flex items-center justify-center">
+					<div class="absolute inset-0 bg-gray-500 opacity-10" />
+					<AddPatient />
+				</div>
+			{/if}
 		{/each}
 	</div>
 </div>
