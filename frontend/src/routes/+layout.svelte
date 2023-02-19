@@ -6,7 +6,7 @@
 	export let data;
 </script>
 
-<div class="bg-gray-100">
+<div class="bg-gray-100 min-h-full">
 	{#if data.user}
 		<!-- <div class="w-full">
 			<nav class="navbar">
@@ -22,4 +22,10 @@
 	{/if}
 
 	<slot />
+
+	{#if data.user}
+		<footer class="bg-white w-full h-16 flex items-center justify-center absolute bottom-0">
+			<p class="text-gray-500">Made with ❤️ by <a href="https://github.com/NadulaG" target="_blank" rel="noreferrer">Nadula</a>, <a href="https://github.com/SirTZN" target="_blank" rel="noreferrer">Eric</a> & <a href="https://github.com/3thanB3ear" target="_blank" rel="noreferrer">Ethan</a></p>
+		</footer>
+	{/if}
 </div>
