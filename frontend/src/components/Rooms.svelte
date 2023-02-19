@@ -1,13 +1,17 @@
 <script>
-	import { addRoomModal } from '../stores';
+	import { dataTableHandler } from '@skeletonlabs/skeleton';
+	import { addRoomModal, assignPatientModal } from '../stores';
 	import AddRoom from './AddRoom.svelte';
+	import AssignPatient from '/src/components/AssignPatient.svelte';
 
 	export let rooms;
 	export let equipment;
+	export let patients;
 
-	console.log(equipment)
+	let selectedRoom;
 
 	let searchQuery = '';
+	AssignPatient;
 </script>
 
 <div class="flex flex-col">
@@ -20,9 +24,9 @@
 			autocomplete="off"
 			bind:value={searchQuery}
 		/>
-		<button class="btn bg-primary-500 rounded-md" on:click={() => addRoomModal.set(true)}>
+		<!-- <button class="btn bg-primary-500 rounded-md" on:click={() => addRoomModal.set(true)}>
 			<span><i class="fa-solid fa-plus" /></span>
-		</button>
+		</button> -->
 	</div>
 
 	<div class="flex flex-col">
@@ -38,12 +42,17 @@
 						<div class="flex items-center">
 							<span class="badge bg-primary-500 mr-2 rounded-lg" />
 							<dt class="font-semibold">Equipment:</dt>
-							{#each room.equipment as _equipment}
-								<dd class="ml-2"></dd>
-							{/each}
+								<dd class="ml-2">{room.equipment}</dd>
 						</div>
-						<a href="" class="btn bg-primary-500 w-[100%] h-[40px] mt-4 rounded-md" on:click={() => {}}>
-							<button>Assign Patient</button>
+						<a
+							href="/"
+							class="btn bg-primary-500 w-[100%] h-[40px] mt-4 rounded-md"
+							on:click={() => {
+								selectedRoom = room;
+								assignPatientModal.set(true);
+							}}
+						>
+							<button class="text-white">Assign Patient</button>
 						</a>
 					</dl>
 				</a>
@@ -51,10 +60,12 @@
 		</div>
 	</div>
 
-	{#if $addRoomModal}
+	{#if $assignPatientModal}
 		<div class="fixed inset-0 z-50 flex items-center justify-center">
 			<div class="absolute inset-0 bg-gray-500 opacity-40" />
-			<AddRoom />
+			<AssignPatient room={selectedRoom} {patients} />
 		</div>
 	{/if}
 </div>
+
+<!--  -->

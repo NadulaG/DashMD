@@ -30,10 +30,10 @@
 			bind:value={searchQuery}
 		/>
 		<button class="btn bg-primary-500 rounded-md" on:click={() => addPatientModal.set(true)}>
-			<span><i class="fa-solid fa-plus" /></span>
+			<span><i class="fa-solid fa-user-plus" /></span>
 		</button>
 	</div>
-	<div class="flex flex-row flex-wrap gap-5 h-[60%] pb-100 overflow-y-auto drop-shadow-sm">
+	<div class="flex flex-row flex-wrap gap-5 h-[60%] pb-[26%] overflow-y-auto drop-shadow-sm">
 		{#each patients.filter((patient) => (patient.first_name + ' ' + patient.last_name)
 				.toLowerCase()
 				.includes(searchQuery.trim().toLowerCase())) as patient}
@@ -41,7 +41,11 @@
 				class="card bg-white shadow-md rounded-lg w-96 p-4 hover:drop-shadow-lg"
 				href="/dashboard/patients/{patient.id}"
 			>
-				<h2 class="text-xl font-bold mb-2">{patient.last_name}, {patient.first_name}</h2>
+				<h2 class="text-xl font-bold mb-2">
+					{patient.last_name}, 
+					{patient.first_name}
+					{patient.middle_initial ? `${patient.middle_initial}.` : ''}
+				</h2>
 				<hr />
 				<br />
 				<dl class="flex flex-col mb-2">

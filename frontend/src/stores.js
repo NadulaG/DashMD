@@ -5,3 +5,4 @@ export const addPatientModal = writable(false);
 export const addRoomModal = writable(false);
 export const addEquipmentModal = writable(false);
 export const assignPatientModal = writable(false);
+export const assignRoomModal = writable(false);

@@ -22,12 +22,10 @@
 		</button>
 	</div>
 	<div class="flex flex-row flex-wrap gap-5 h-[60%] pb-[20%] overflow-y-auto drop-shadow-sm">
-		{#each equipment.filter((_equipment) => (_equipment.first_name + ' ' + _equipment.last_name)
+		{#each equipment.filter((_equipment) => _equipment.name
 				.toLowerCase()
 				.includes(searchQuery.trim().toLowerCase())) as _equipment}
-			<div
-				class="card bg-white shadow-md rounded-lg w-96 p-4 hover:drop-shadow-lg"
-			>
+			<div class="card bg-white shadow-md rounded-lg w-96 p-4 hover:drop-shadow-lg">
 				<h2 class="text-xl font-bold mb-2">{_equipment.name}</h2>
 				<hr />
 				<br />

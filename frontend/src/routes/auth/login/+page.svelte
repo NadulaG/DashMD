@@ -1,4 +1,4 @@
-<title>Login | MedDash</title>
+<title>Login | DashMD</title>
 
 <div class="flex justify-center items-center h-screen">
 	<div class="w-96 p-6 bg-white rounded shadow-md">

@@ -4,7 +4,7 @@
             <img class="h-10" src="/favicon.png" alt="Logo">
         </a>
         <a href="/" style="text-decoration: none;" title="Go to homepage">
-            <h1 class="text-red-600 pointer-events-none">MedDash</h1>
+            <h1 class="text-red-600 pointer-events-none">DashMD</h1>
         </a>
 
     </div>
