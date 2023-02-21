@@ -1,3 +1,5 @@
+🌐 Live Demo: http://74.207.236.92/
+
 ## Inspiration
 When we looked at the inpatient tracking and hospital management systems already in place in hospitals worldwide, we saw that they were very outdated and poorly stylized. This makes it very difficult for hospital staff to properly keep track of patients, nurses, and systems. Our program promises to build on top of these outdated systems, providing new and improved visibility, accessibility, and accuracy. One of the largest and most adopted hospital management service is known as epic, despite that it's not at all user friendly which makes it much easier to make mistakes when typing information in. These are also ran by for-profit companies, which means that obtaining any sort of good server can be prohibitally expensive.
 
